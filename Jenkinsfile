@@ -31,8 +31,11 @@ spec:
         }
     }
     environment {
-        IMAGE_PUSH_DESTINATION="kyounger/kaniko-jenkins:k8s-secret-declarative"
+        DOCKERHUB_CREDENTIALS=credentials("jenkins_dockerhub")
+	DOCKER_IMAGE_NAME="juanllorenzogomis/kaniko-jenkins"
+	IMAGE_PUSH_DESTINATION="juanllorenzogomis/kaniko-jenkins"
     }
+
     stages {
         stage('Build with Kaniko') {
             steps {
